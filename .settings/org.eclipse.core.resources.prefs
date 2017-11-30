@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//WebContent/choose.jsp=UTF-8
+encoding//WebContent/testttt.jsp=UTF-8
+encoding//src/connect/test.java=UTF-8
+encoding//src/controller/CommentServlet.java=UTF-8
+encoding//src/controller/ExamServlet.java=UTF-8
+encoding//src/controller/HistoryServlet.java=UTF-8
+encoding//src/controller/InformationServlet.java=UTF-8
+encoding//src/controller/LoginController.java=UTF-8
+encoding//src/controller/ManageAccount.java=UTF-8
+encoding//src/controller/ManageComment.java=UTF-8
+encoding//src/controller/ManageExam.java=UTF-8
+encoding//src/controller/UserServlet.java=UTF-8
+encoding//src/controller/testttt.java=UTF-8

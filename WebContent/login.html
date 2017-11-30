@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Freetuts.net - Validate form = Javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script language="javascript">
+            function validateForm()
+            {
+            	if(confirm("Bấm vào nút OK để tiếp tục") == true){
+                    document.getElementById("demo").innerHTML = 
+                    "Bạn muốn tiếp tục";
+                    return true;
+                }
+            	else{
+                    document.getElementById("demo").innerHTML = 
+                    "Bạn không muốn tiếp tục";
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <p id="demo"></p>
+    <button type="button" onclick="return validateForm()">Click vào đây</button>
+        <form method="post" action="testttt" onsubmit="return validateForm()">
+            Username: <input type="text" name="username" id="username" value=""/> <br/><br/>
+            Password: <input type="password" name="password" id="password" value=""/> <br/><br/>
+            <input type="submit" name="login" value="Login"/>
+        </form>
+    </body>
+</html>

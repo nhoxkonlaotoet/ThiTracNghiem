@@ -1,0 +1,60 @@
+div.body-login{
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 400px;
+    border: 2px solid black;}
+div.body-form-login{
+	top: 100;
+  	right: 10;
+ 	left: 1000;
+	position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 11pt;  
+    margin-top: 3em;
+    margin-left: 22em;
+    margin-right: 2em;
+    width: 400px;
+    border: 2px solid red;}
+h1, h2, h3, h4, h5, h6{
+    color: teal;
+    text-align: center; }
+label{
+    float: left;
+    width:10em;
+    text-align: right;
+    margin-bottom: .5em; }
+input{
+    width: 15em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-bottom: 1em;}
+#id{
+    width: 10em;
+    text-align: center; }
+br{clear: both;}
+.alert-box {
+    color: #555;
+    border-radius: 10px;
+    font-family: Tahoma, Geneva, Arial, sans-serif;
+    font-size: 11px;
+    padding: 10px 10px 10px 36px;
+    margin: 10px;
+}
+.alert-box span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.error {
+    background: #ffecec url('../images/error.png') no-repeat 10px 50%;
+    border: 1px solid #f5aca6;
+}
+.success {
+    background: #e9ffd9 url('../images/success.png') no-repeat 10px 50%;
+    border: 1px solid #a6ca8a;
+}
+.warning {
+    background: #fff8c4 url('../images/warning.png') no-repeat 10px 50%;
+    border: 1px solid #f2c779;
+}
