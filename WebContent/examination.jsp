@@ -71,19 +71,19 @@
 						out.println("Câu " + (i + 1) + ". "+listAnswer.get(i).getQuestionContent() + "<br>");
 						if (listAnswer.get(i).getCorrectAnswer().equals(listSelectedAnswer.get(i))){	// câu đúng
 							if (listAnswer.get(i).getCorrectAnswer().equals("A"))
-								out.println("<font color='green'>A. "+ listAnswer.get(i).getAnswerA() + "</font><br>");
+								out.println("<font color='blue'><b>A. "+ listAnswer.get(i).getAnswerA() + "</b></font><br>");
 							else
 								out.println("<font color='black'>A. "+ listAnswer.get(i).getAnswerA() + "</font><br>");
 							if (listAnswer.get(i).getCorrectAnswer().equals("B"))
-								out.println("<font color='green'>B. "+ listAnswer.get(i).getAnswerB() + "</font><br>");
+								out.println("<font color='blue'><b>B. "+ listAnswer.get(i).getAnswerB() + "</b></font><br>");
 							else
 								out.println("<font color='black'>B. "+ listAnswer.get(i).getAnswerB() + "</font><br>");
 							if (listAnswer.get(i).getCorrectAnswer().equals("C"))
-								out.println("<font color='green'>C. "+ listAnswer.get(i).getAnswerC() + "</font><br>");
+								out.println("<font color='blue'><b>C. "+ listAnswer.get(i).getAnswerC() + "</b></font><br>");
 							else
 								out.println("<font color='black'>C. "+ listAnswer.get(i).getAnswerC() + "</font><br>");
 							if (listAnswer.get(i).getCorrectAnswer().equals("D"))
-								out.println("<font color='green'>D. "+ listAnswer.get(i).getAnswerD() + "</font><br>");
+								out.println("<font color='blue'><b>D. "+ listAnswer.get(i).getAnswerD() + "</b></font><br>");
 							else
 								out.println("<font color='black'>D. "+ listAnswer.get(i).getAnswerD() + "</font><br>");
 							out.println("<br>");
@@ -91,37 +91,37 @@
 						else {	// câu sai -- đáp án đúng màu xanh lá, đáp án sai màu đỏ
 							// A
 							if (listAnswer.get(i).getCorrectAnswer().equals("A"))	// đáp án đúng
-								out.println("<font color='green'>A. "+ listAnswer.get(i).getAnswerA() + "</font><br>");
+								out.println("<font color='blue'><b>A. "+ listAnswer.get(i).getAnswerA() + "</b></font><br>");
 							else {
 								if (listSelectedAnswer.get(i).equals("A"))	// đáp án chọn
-									out.println("<font color='red'>A. "+ listAnswer.get(i).getAnswerA() + "</font><br>");
+									out.println("<font color='red'><b>A. "+ listAnswer.get(i).getAnswerA() + "</b></font><br>");
 								else	// đáp án không chọn
 									out.println("<font color='black'>A. "+ listAnswer.get(i).getAnswerA() + "</font><br>");
 							}
 							// B
 							if (listAnswer.get(i).getCorrectAnswer().equals("B"))	// đáp án đúng
-								out.println("<font color='green'>B. "+ listAnswer.get(i).getAnswerB() + "</font><br>");
+								out.println("<font color='blue'><b>B. "+ listAnswer.get(i).getAnswerB() + "</b></font><br>");
 							else {
 								if (listSelectedAnswer.get(i).equals("B"))	// đáp án chọn
-									out.println("<font color='red'>B. "+ listAnswer.get(i).getAnswerB() + "</font><br>");
+									out.println("<font color='red'><b>B. "+ listAnswer.get(i).getAnswerB() + "</b></font><br>");
 								else	// đáp án không chọn
 									out.println("<font color='black'>B. "+ listAnswer.get(i).getAnswerB() + "</font><br>");
 							}
 							// C
 							if (listAnswer.get(i).getCorrectAnswer().equals("C"))	// đáp án đúng
-								out.println("<font color='green'>C. "+ listAnswer.get(i).getAnswerC() + "</font><br>");
+								out.println("<font color='blue'><b>C. "+ listAnswer.get(i).getAnswerC() + "</b></font><br>");
 							else {
 								if (listSelectedAnswer.get(i).equals("C"))	// đáp án chọn
-									out.println("<font color='red'>C. "+ listAnswer.get(i).getAnswerC() + "</font><br>");
+									out.println("<font color='red'><b>C. "+ listAnswer.get(i).getAnswerC() + "</b></font><br>");
 								else	// đáp án không chọn
 									out.println("<font color='black'>C. "+ listAnswer.get(i).getAnswerC() + "</font><br>");
 							}
 							// D
 							if (listAnswer.get(i).getCorrectAnswer().equals("D"))	// đáp án đúng
-								out.println("<font color='green'>D. "+ listAnswer.get(i).getAnswerD() + "</font><br>");
+								out.println("<font color='blue'><b>D. "+ listAnswer.get(i).getAnswerD() + "</b></font><br>");
 							else {
 								if (listSelectedAnswer.get(i).equals("D"))	// đáp án chọn
-									out.println("<font color='red'>D. "+ listAnswer.get(i).getAnswerD() + "</font><br>");
+									out.println("<font color='red'><b>D. "+ listAnswer.get(i).getAnswerD() + "</b></font><br>");
 								else	// đáp án không chọn
 									out.println("<font color='black'>D. "+ listAnswer.get(i).getAnswerD() + "</font><br>");
 							}

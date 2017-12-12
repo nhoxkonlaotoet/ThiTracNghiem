@@ -3,6 +3,7 @@ package model;
 public class Title {
 	private int titleID;
 	private String subjectName;
+	private String subjectID;
 	private String titleName;
 	private String schoolYear;
 	private int time;
@@ -35,6 +36,12 @@ public class Title {
 	}
 	public void setTitleID(int titleID) {
 		this.titleID = titleID;
+	}
+	public String getSubjectID() {
+		return subjectID;
+	}
+	public void setSubjectID(String subjectID) {
+		this.subjectID = subjectID;
 	}
 	
 }

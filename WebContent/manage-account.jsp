@@ -133,6 +133,7 @@
 	}
 %>
 </table>
+<button onclick="location='./manager.jsp'">Quay lại</button>
 </center>
 </body>
 </html>

@@ -13,6 +13,18 @@
 <jsp:include page="header.jsp"></jsp:include>
 <%
 	Cookie[] listCookie = request.getCookies();
+	boolean login = false;
+	String userName = "";
+	if(listCookie != null)							
+		for(int k = 0; k < listCookie.length; k++){
+			if(listCookie[k].getName().equals("username")){	// đã đăng nhập
+				userName = listCookie[k].getValue();	// lưu lại username
+				login = true;
+				break;
+			}
+		}
+	if (!login)	// chưa đăng nhập
+		response.sendRedirect("./login.jsp");
 	String role = "manager";
 	if (listCookie != null){
 		for (Cookie c : listCookie){
@@ -47,6 +59,8 @@ Tìm theo:
 <tr>
  </c:forEach>
 </table>
+<br>
+<button onclick="location='./index.jsp'">Quay lại</button>
 </center>
 </body>
 </html>

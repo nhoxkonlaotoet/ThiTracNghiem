@@ -1,98 +1,156 @@
+<%@page import="model.Title"%>
+<%@page import="model.NewQuestion"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Subject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/main.css">
-<title>Thêm đề thi</title>
+<title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <br>
-<form action="ManageExam" method="post">
+<form action="AddExam" method="post">
+<c:if test="${success eq '1'}">
+	<div class="alert-box success"><span></span>Thêm đề thi thành công! Bấm vào <a href="AddExam"><b>đây </b></a>để tiếp tục thêm hoặc về <a href="./index.jsp"><b>trang chủ</b></a>
+	</div>
+</c:if>	
+<c:if test="${success eq '0'}">
+	<div class="alert-box error"><span></span>Đề thi đã tồn tại! Bấm vào <a href="AddExam"><b>đây </b></a>để tiếp tục thêm hoặc về <a href="./index.jsp"><b>trang chủ</b></a>
+	</div>
+</c:if>	
 <table>
-<%
-String err = (String)request.getAttribute("success");
-	if ("1".equals(err)) {
-		out.println("<tr><td><center><div class=\"alert-box success\"><span></span>Thêm đề thi thành công!</div></center></td></tr>"); 
-	}
-%>
-<tr><td>Tên môn:</td>
-<td>
-<%
-	ArrayList<Subject> listSubject = (ArrayList<Subject>)request.getAttribute("listSubject");
-	String subjectName = (String)request.getAttribute("subjectName");
-	int subjectID = -1;
-	if (listSubject != null && listSubject.size() > 0){
-		out.print("<select name='subjectName'>");
-		if(subjectName != null && !subjectName.equals("")){	// đã chọn 1 môn
-			for (Subject s : listSubject){
-				if (s.getSubjectName().equals(subjectName)){
-					subjectID = s.getSubjectID();
-					out.print("<option selected='selected'>"+ s.getSubjectName() +"</option>");
-				}
-				else 
-					out.print("<option>"+ s.getSubjectName() +"</option>");
-			}
-		}
-		else{
-			out.print("<option>Chọn môn học</option>");
-			for (Subject s : listSubject){
-				out.print("<option>"+ s.getSubjectName() +"</option>");
-			}
-		}
-		out.print("</select>");
-		if(subjectID != -1)	// có môn chọn
-			out.print("<input type='hidden' name='subjectID' value='"+ subjectID +"'>");
-	}
-	else
-		out.print("Chưa có môn học nào. Vui lòng thêm môn học trước!");
-	String titleName = (String)request.getAttribute("titleName");
-	if (titleName.equals(null))
-		titleName = "";
-	String schoolYear = (String)request.getAttribute("schoolYear");
-	if (schoolYear.equals(null))
-		schoolYear = "";
-	String time = (String)request.getAttribute("time");
-	if (time.equals(null))
-		time = "";
-%>
-</td></tr>
-<tr><td>Tên đề:</td><td><input type="text" name="titleName" value='<%=titleName%>'></td></tr>
-<%
-	if ("0".equals(err)) {
-		out.println("<tr><td><center><div class=\"alert-box error\"><span>error: </span>Tên đề thi đã tồn tại!</div></center></td></tr>"); 
-	}
-%>
+	<tr><td>Tên môn: </td>
+	<td>
+	<select name="subjectID">
+		<c:if test="${ empty listSubject }">Không có môn học nào</c:if>
+		
+		<c:if test="${ not empty listSubject }">
+			<option>Chọn môn học</option>
+			<c:forEach items="${ listSubject }" var="subject">
+				<c:if test="${ titleDetail ne null }">
+					<c:if test="${ titleDetail.getSubjectID() eq subject.getSubjectID() }">
+						<option selected="selected" value="${ subject.getSubjectID() }">${ subject.getSubjectName() }</option>
+					</c:if>
+					<c:if test="${ title.getSubjectID() ne subject.getSubjectID() }">
+						<option value="${ subject.getSubjectID() }">${ subject.getSubjectName() }</option>
+					</c:if>
+				</c:if>
+				<c:if test="${ titleDetail eq null }">
+						<option value="${ subject.getSubjectID() }">${ subject.getSubjectName() }</option>
+				</c:if>
+			</c:forEach>
+		</c:if>
+	</select>
+	</td></tr>
+	
+	<c:if test="${ titleDetail ne null }">
+		<tr><td>Tên đề:</td><td><input type="text" name="titleName" value="${ titleDetail.getTitleName() }"></td></tr>
+		<c:if test="${ err eq '0' }">
+			<tr><td><center><div class=\"alert-box error\"><span>error: </span>Tên đề thi đã tồn tại!</div></center></td></tr>
+		</c:if>
+		<tr><td>Năm học: </td><td><input type="text" name="schoolYear" value="${ titleDetail.getSchoolYear() }"></td></tr>
+		<tr><td>Thời gian làm bài:</td><td><input type="text" name="time" value="${ titleDetail.getTime() }"></td></tr>
+	</c:if>
+	
+	<c:if test="${ titleDetail eq null }">
+		<tr><td>Tên đề:</td><td><input type="text" name="titleName" value=""></td></tr>
+		<c:if test="${ err eq '0' }">
+			<tr><td><center><div class=\"alert-box error\"><span>error: </span>Tên đề thi đã tồn tại!</div></center></td></tr>
+		</c:if>
+		<tr><td>Năm học: </td><td><input type="text" name="schoolYear" value=""></td></tr>
+		<tr><td>Thời gian làm bài:</td><td><input type="text" name="time" value=""></td></tr>
+	</c:if>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>Câu hỏi và đáp án:</td></tr>
+	<tr><td>Nội dung:</td></tr>
+	<% 
+		int i = 1;
+	%>
 
-<tr><td>Năm học:</td><td><input type="text" name="schoolYear" value='<%=schoolYear%>'></td></tr>
-<tr><td>Thời gian làm bài:</td><td><input type="text" name="time" value='<%=time%>'></td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>Câu hỏi và đáp án:</td></tr>
-<tr><td>Số câu hỏi: </td><td><input type="text" name="numberOfQuestion" value='<%=(int)request.getAttribute("numberOfQuestion") %>'></td><td><input type="submit" name="commandA" value="Xác nhận"></td></tr>
-<tr><td>&nbsp;</td></tr>
-<tr><td>Nội dung:</td></tr>
-<% 
-	int num = (int)request.getAttribute("numberOfQuestion");	// số câu hỏi
-	if(num > 0){
-		for (int i = 1; i <= num; i++){
-			out.print("<tr><td>Câu hỏi "+ i +": </td><td><input type='text' name='question"+ i +"'></td></tr>"
-				+ "<tr><td>Đáp án A: </td><td><input type='text' name='answerA"+ i +"'></td></tr>"
-				+ "<tr><td>Đáp án B: </td><td><input type='text' name='answerB"+ i +"'></td></tr>"
-				+ "<tr><td>Đáp án C: </td><td><input type='text' name='answerC"+ i +"'></td></tr>"
-				+ "<tr><td>Đáp án D: </td><td><input type='text' name='answerD"+ i +"'></td></tr>"
-				+ "<tr><td>Đáp án đúng: </td><td><select name='correctAnswer"+ i +"'>"
-				+ "<option value='A'>A</option><option value='B'>B</option><option value='C'>C</option><option value='D'>D</option>"
-				+ "</select></td></tr><tr><td>&nbsp;</td></tr>");
-		}
-	}
-	else
-		out.print("<tr><td> Chưa nhập số câu hỏi! </td><td>");
-%>
-<tr><td><input type="submit" name="commandA" value="Thêm"></td></tr>
+	<c:if test="${ not empty listNewQuestion }">
+		<c:forEach items="${ listNewQuestion }" var="q">
+				<input type="hidden" name="questionID<%=i%>" value="${q.getQuestionID()}">
+				<input type="hidden" name="isNew<%=i%>" value="${q.getIsNew()}">
+				<c:if test="${ q.getIsNew() eq 'false' }">
+					<input type="hidden" name="questionContent<%=i%>" value="${q.getContent()}">
+					<input type="hidden" name="answerA<%=i%>" value="${q.getAnswerA()}">
+					<input type="hidden" name="answerB<%=i%>" value="${q.getAnswerB()}">
+					<input type="hidden" name="answerC<%=i%>" value="${q.getAnswerC()}">
+					<input type="hidden" name="answerD<%=i%>" value="${q.getAnswerD()}">
+					<input type="hidden" name="correctAnswer<%=i%>" value="${q.getCorrectAnswer()}">
+					<tr><td>Câu hỏi <%=i++%>: </td></tr>
+					<tr><td>Nội dung: </td><td>${q.getContent()}</td></tr>
+					<tr><td>Đáp án A: </td><td>${q.getAnswerA()}</td></tr>
+					<tr><td>Đáp án B: </td><td>${q.getAnswerB()}</td></tr>
+					<tr><td>Đáp án C: </td><td>${q.getAnswerC()}</td></tr>
+					<tr><td>Đáp án D: </td><td>${q.getAnswerD()}</td></tr>
+					<tr><td>Đáp án đúng: </td><td>${q.getCorrectAnswer()}</td></tr>
+					<tr><td>
+						<form action="AddExam" method="post">
+							<input type="hidden" name="questionIDSelected" value="${q.getQuestionID()}">
+							<input type="submit" name="command" value="Xóa">
+						</form>
+					</td></tr>
+					<tr><td>&nbsp;</td></tr>		
+				</c:if> 
+				<c:if test="${ q.getIsNew() eq 'true' }">
+					<tr><td>Câu hỏi <%=i%>: </td></tr>
+					<tr><td>Nội dung: </td><td><input type="text" name ="questionContent<%=i%>" value ="${q.getContent()}"></td></tr>
+					<tr><td>Đáp án A: </td><td><input type="text" name ="answerA<%=i%>" value ="${q.getAnswerA()}"></td></tr>
+					<tr><td>Đáp án B: </td><td><input type="text" name ="answerB<%=i%>" value ="${q.getAnswerB()}"></td></tr>
+					<tr><td>Đáp án C: </td><td><input type="text" name ="answerC<%=i%>" value ="${q.getAnswerC()}"></td></tr>
+					<tr><td>Đáp án D: </td><td><input type="text" name ="answerD<%=i%>" value ="${q.getAnswerD()}"></td></tr>
+					<tr><td>Đáp án đúng: </td><td>
+					<c:if test="${q.getCorrectAnswer() eq 'A'}">
+						<select name="correctAnswer<%=i++%>"><option selected="selected" value='A'>A</option><option value='B'>B</option><option value='C'>C</option><option value='D'>D</option></select>
+					</c:if>
+					<c:if test="${q.getCorrectAnswer() eq 'B'}">
+						<select><option value='A'>A</option><option selected="selected" value='B'>B</option><option value='C'>C</option><option value='D'>D</option></select>
+					</c:if>
+					<c:if test="${q.getCorrectAnswer() eq 'C'}">
+						<select><option value='A'>A</option><option value='B'>B</option><option selected="selected" value='C'>C</option><option value='D'>D</option></select>
+					</c:if>
+					<c:if test="${q.getCorrectAnswer() eq 'D'}">
+						<select><option value='A'>A</option><option value='B'>B</option><option value='C'>C</option><option selected="selected" value='D'>D</option></select>
+					</c:if>
+					</td></tr>
+					</select></td></tr>
+					<!-- <input type="hidden" name="" value=""> -->
+					<tr><td>
+						<form action="AddExam" method="post">
+							<input type="hidden" name="questionIDSelected" value="${q.getQuestionID()}">
+							<input type="submit" name="command" value="Xóa">
+						</form>
+					</td></tr>
+					<tr><td>&nbsp;</td></tr>		
+				</c:if>
+			
+		</c:forEach>
+	</c:if>
+	<c:if test="${ newQuestion eq '1' }">
+		<input type="hidden" name="questionID<%=i%>" value="new<%=i%>">
+		<input type="hidden" name="newQuestion" value="1">
+		<input type="hidden" name="isNew<%=i%>" value="true">
+		<tr><td>Câu hỏi <%=i%>: </td></tr>
+		<tr><td>Nội dung: </td><td><input type="text" name="questionContent<%=i%>"></td></tr>
+		<tr><td>Đáp án A: </td><td><input type="text" name="answerA<%=i%>"></td></tr>
+		<tr><td>Đáp án B: </td><td><input type="text" name="answerB<%=i%>"></td></tr>
+		<tr><td>Đáp án C: </td><td><input type="text" name="answerC<%=i%>"></td></tr>
+		<tr><td>Đáp án D: </td><td><input type="text" name="answerD<%=i%>"></td></tr>
+		<tr><td>Đáp án đúng: </td><td><select name="correctAnswer<%=i++%>">
+		<option value='A'>A</option><option value='B'>B</option><option value='C'>C</option><option value='D'>D</option>
+		</select></td></tr><tr><td>&nbsp;</td></tr>		
+	</c:if>
+	<input type="hidden" name="numberOfQuestion" value="<%=i%>">
+	<tr><td><input type="submit" value="Thêm câu hỏi đã có" name="command"></td></tr>
+	<tr><td><input type="submit" value="Thêm câu hỏi mới" name="command"></td></tr>
+	<tr><td><input type="submit" value="Cập nhật" name="command"></td></tr>
+	<tr><td><input type="submit" value="Thêm đề thi" name="command"></td></tr>
 </table>
 </form>
 </body>

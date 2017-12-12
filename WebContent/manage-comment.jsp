@@ -50,6 +50,7 @@
 		</tr>
 	</form>
 </c:forEach>
-</table></center>
+</table><br>
+<button onclick="location='./manager.jsp'">Quay lại</button></center>
 </body>
 </html>

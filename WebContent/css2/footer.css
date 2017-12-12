@@ -1,0 +1,69 @@
+footer.full_footer {
+    height: auto;
+}
+footer.full_footer {
+    background: #181a1a;
+    font-size: 0.875rem;
+    position: relative;
+}
+login.css:19
+footer {
+    font-size: 0.875rem;
+    text-align: center;
+}
+footer{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+footer.full_footer .nav-links {
+    padding: 35px 10px 10px 30px;
+}
+footer.full_footer .nav-links {
+    height: auto;
+}
+footer.full_footer .nav-links {
+    font-size: 0.875rem;
+    line-height: 18px;
+    margin: 0 auto;
+    max-width: 1150px;
+    padding: 46px 30px 35px 35px;
+    width: 100%;
+}
+footer.full_footer .footer-copyright {
+    height: auto;
+    position: relative;
+}
+footer.full_footer .footer-copyright {
+    color: #a8b2b1;
+    font-size: 0.75rem;
+    margin: 0 auto;
+    max-width: 1150px;
+    overflow: hidden;
+    padding: 0px 25px;
+    text-align: center;
+    width: 100%;
+}
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+p {
+    margin-bottom: 1.5em;
+    text-indent: 0;
+}
+footer.full_footer .footer-copyright {
+    color: #a8b2b1;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    max-width: 1150px;
+    overflow: hidden;
+    padding: 0px 25px;
+    text-align: center;
+    width: 100%;
+}

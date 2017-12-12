@@ -41,32 +41,46 @@ public class UserServlet extends HttpServlet {
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");			
 			String email = request.getParameter("email");
+			String fullname = request.getParameter("fullname");
+			String birthday = request.getParameter("birthday");
+			String country = request.getParameter("country");
+
+			request.setAttribute("username", username);
+			request.setAttribute("password", password);
+			request.setAttribute("email", email);
+			request.setAttribute("fullname", fullname);
+			request.setAttribute("birthday", birthday);
+			request.setAttribute("country", country);
+			
 			if(username != null && username.trim() != ""){
 				if (AccountExist(username))//username already exist
-					err = err + "&Acc=1";
+					request.setAttribute("Acc", "1");
 			}
 			if(email != null && email.trim() != ""){
 				if(EmailExist(email))	// email exists
-					err = err + "&Ema=1"; //Email was used
-				//else
-				//	err = err + "&Ema=2";
+					request.setAttribute("Ema", "1"); //Email was used
 			}
 			if (username.trim() == "" || username == null)
-				err = err + "&Acc=0"; 
+				request.setAttribute("Acc", "0");
 			if (email.trim() == "" || email == null)
-				err = err + "&Ema=0"; 	// forget to fill email 
-			if (password.trim() == "" || password == null || password.length() < 6)		
-				err = err + "&Pas=1"; // password invalid
+				request.setAttribute("Ema", "0");
+			if (password.trim() == "" || password == null || password.length() < 6)	
+				request.setAttribute("Pas", "1"); // password invalid
 			if (!AccountExist(username) && username.trim() != "" 
 					&& !EmailExist(email) && email.trim() != ""
 					&& password.trim().length() >= 6) {
-				String fullname = request.getParameter("fullname");
-				String birthday = request.getParameter("birthday");
-				String country = request.getParameter("country");
 				InsertDB.InsertAccount(username, password, email, fullname, birthday, country);
-				err = "&Acc=2";
+				request.setAttribute("Acc", "2");
+				// đăng ký thành công rồi thì reset tất cả các ô nhập liệu lại
+
+				request.setAttribute("username", "");
+				request.setAttribute("password", "");
+				request.setAttribute("email", "");
+				request.setAttribute("fullname", "");
+				request.setAttribute("birthday", "");
+				request.setAttribute("country", "");
 			}
-			response.sendRedirect("register.jsp?"+ err);
+			request.getRequestDispatcher("register.jsp").forward(request, response);
 			break;
 		case "login":
 			String username2 = request.getParameter("username");
@@ -96,7 +110,9 @@ public class UserServlet extends HttpServlet {
 			}
 
 			else{	// login failed
-				response.sendRedirect("login.jsp?err=1");
+				request.setAttribute("err", "1");
+				request.setAttribute("username", username2);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 			break;
 		}

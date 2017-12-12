@@ -22,7 +22,9 @@
 %>
 <a href="ManageAccount">Quản lý tài khoản</a><br>
 <a href="ManageExam">Quản lý bài thi</a><br>
-<a href="ManageComment">Quản lý sự kiện</a><br>
+<a href="ManageQuestion">Ngân hàng câu hỏi</a><br>
 <a href="ManageComment">Danh sách ý kiến đóng góp</a>
+<br>
+<button onclick="location='./index.jsp'">Quay lại</button>
 </body>
 </html>

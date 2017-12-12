@@ -37,8 +37,8 @@
 				out.println("<div class=\"alert-box error\"><span>error: </span>Mật khẩu không hợp lệ!</div>"); 
 		}
 		%>
-	<form action="UserServlet" method="post">
-		<h3><label> Tên tài khoản:&nbsp; </label></h3> <input type="text" name="username"><img src="<%=request.getContextPath()%>/images/success.png">
+	<form action="UserServlet" method="post" class="new_new_session ng-pristine ng-invalid ng-invalid-required">
+		<h3><label> Tên tài khoản:&nbsp; </label></h3> <input type="text" name="username" class="ng-invalid ng-touched">
 		<br><h3><label> Mật khẩu:&nbsp; </label></h3> <input type="password" name="password">
 		<br><h3><label> Email:&nbsp; </label></h3> <input type="text" name="email">		
 		<br><h3><label> Họ & tên:&nbsp; </label></h3> <input type="text" name="fullname">

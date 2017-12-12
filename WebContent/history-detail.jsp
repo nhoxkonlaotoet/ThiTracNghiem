@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<div class="container">
 <br>
 <c:if test="${ empty listHistory }">
 	<h1>Đề thi không tại hoặc đã bị xóa!!!</h1>
@@ -19,7 +20,7 @@
 		<b>Câu <%= i++ %>: ${ history.questionContent } </b><br>
 		Đáp án chọn: ${ history.chosenAnswer } và đáp án đúng: ${ history.correctAnswer } <br>
 		<%-- Hình: ${ history.image } <br> --%>
-		<c:if test="${ history.image.trim() eq 'Không' }"> không có hình <br></c:if>
+		<c:if test="${ history.image.trim() eq 'Không' }"></c:if>
 		<c:if test="${ history.image.trim() ne 'Không' }"> <img src="./images/question/${ history.image }"> <br> </c:if>
 		
 		<!-- Câu đúng-->
@@ -27,7 +28,7 @@
 			<!-- Đáp án chọn là A -->
 			<c:if test="${ history.chosenAnswer.trim() eq 'A' }">
 				<font color="blue"><b>A. ${ history.answerA } </b></font><br>
-			</c:if>
+			</c:if>  
 			<c:if test="${ history.chosenAnswer.trim() ne 'A' }">
 				<font color="black">A. ${ history.answerA } </font><br>
 			</c:if>
@@ -83,11 +84,11 @@
 			</c:if>
 			<c:if test="${ history.correctAnswer.trim() eq 'C' }">
 				<font color="blue"><b>C. ${ history.answerC } </b></font><br>
-			</c:if>
+			</c:if> 
 			<c:if test="${ history.chosenAnswer.trim() ne 'C' and history.correctAnswer.trim() ne 'C' }">
 				<font color="black">C. ${ history.answerC } </font><br>
 			</c:if>
-			
+			 
 			<!-- Đáp án D -->
 			<c:if test="${ history.chosenAnswer.trim() eq 'D' }">
 				<font color="red"><b>D. ${ history.answerD } </b></font><br>
@@ -101,8 +102,8 @@
 		</c:if>
 		<br>
 	</c:forEach>
-</c:if>
-<input type="button" value="Quay lại" onclick="location.href='./HistoryServlet'">
-
+</c:if> 
+<button  value="Quay lại" onclick="location.href='./HistoryServlet'">Quay lại</button>
+</div>
 </body>
 </html>

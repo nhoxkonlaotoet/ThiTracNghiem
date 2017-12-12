@@ -1,0 +1,41 @@
+body{margin:0px;padding:0px;font-size:13px;font-family:Tahoma;word-wrap:break-word}a{outline:0;color:#000000;cursor:pointer;text-decoration:none}img{border:0 none}object{outline:0}embed{outline:0}ul{list-style:none outside none}h1,h2,h3,h4,h5,h6{font-weight:bold}div,h1,h2,h3,h3,h4,h5,h6,p,a,span,ul,input,td{margin:0;padding:0}
+body{background:#ffffff;font-family:Arial !important;}
+#wrapper{margin:0 auto;position:relative;width:100%;}
+.clear{clear:both;}
+.f-left{float:left;}
+.martop_0{margin-top:0px !important;}
+.bold{font-weight:bold;color: #565656;}
+.hidden{display:none;}
+a.under:hover{text-decoration:underline;}
+.cl{color:#00918d;}
+.clhover:hover{color:#00918d !important;}
+#body{width:960px;position:relative;margin-left:auto;margin-right:auto;min-height:640px;padding-top:16px;overflow:hidden}
+#body-content {margin-top: 15px;overflow: hidden;width: 100%;}
+.left-body {float: left;width: 632px;}
+.right-body {float: right;width: 318px;}
+
+/*header*/
+#header{width:960px;margin-left:auto;margin-right:auto;position: relative;}
+#header-top{ clear: both;height:95px;position: relative;width: 960px;}
+#header-top a.header-logo{float:left;width:255px;background:url(../images/logo_gd.png) no-repeat left top; height:95px;margin-left:10px;display:inline;}
+#header-top .header-login {float: right; font-size: 20px}
+#header-top .header-login .p-login {color:#5E5E5E;float: right;margin-top: 35px;}
+#header-top .header-login .p-login a {color:aliceblue ;}
+#header-top .header-login .p-social {    float: right;margin-left: 25px;margin-top: 15px;}
+#header-top .header-login .p-social a {color: #FFFFFF;float: left;font-size: 11px;font-weight: bold;height: 25px;line-height: 23px;padding-left: 34px;width: 146px;}
+#header-top .header-login .p-social a.lnk-f { background: url("../images/login-fb.png") no-repeat scroll left top transparent;}
+#header-top .header-login .p-social a.lnk-g {background: url("../images/icon_google.png") no-repeat scroll left top transparent;}
+	/*menu-header*/
+/* #header-menu{clear: both;height:40px;overflow: hidden;position: relative;width: 960px;} */
+#header-menu{clear: both;height:40px;overflow: hidden;position: relative;}
+/* #header-menu ul.ul-menu-header {float: left;width: 905px;height:40px;background:none repeat scroll 0 0 #14928E;} */
+#header-menu ul.ul-menu-header {float: left;width: 965px;height:40px;background:none repeat scroll 0 0 #14928E;}
+#header-menu ul.ul-menu-header li.li-menu-header {float: left;}
+#header-menu ul.ul-menu-header li.li-menu-header a.lnk-menu-header {color: #ffffff;font-size: 14px;font-weight: bold;height: 40px;line-height: 40px;padding: 0 20px;cursor:pointer;display:block}
+#header-menu ul.ul-menu-header li.li-menu-header a.lnk-menu-header:hover, #header-menu ul.ul-menu-header li.li-menu-header a.menu_active{background:#00B7B2;color: #FFFFFF;}
+#header-menu ul.ul-menu-header li.li-home a.lnk-menu-header{background:url(../images/menu_home.png) no-repeat left top transparent;height: 36px;padding: 0;width: 41px;}
+#header-menu ul.ul-menu-header li.li-home a.lnk-menu-header:hover, #header-menu ul.ul-menu-header li.li-home a.active{ background: url("../images/menu_home_a.png") no-repeat scroll left top transparent !important;}
+.lnk-hm-home{background: url("../images/menu_home.png") no-repeat scroll 0 0 transparent;float: left;height: 40px;text-indent: -200px;width: 55px;}
+.lnk-hm-ee{background:url(../images/menu_ee.png) no-repeat left top;width:42px; height:40px;float:right;text-indent:-3000px;margin-right:7px;display:inline;}
+.lnk-hm-ii{background:url(../images/menu_ii.png) no-repeat left top;width:42px; height:40px;float:right;text-indent:-3000px;}
+#header-menu .lnk-hm-home:hover,#header-menu .menu_active{background-color: #00B7B2;}

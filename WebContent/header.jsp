@@ -3,12 +3,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/common.css" type="text/css">
-<title>Website thi trắc nghiệm online</title>
-<div id="header">
-	<div id="header-top">
+
+ <meta content="text/html; charset=UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" media="all" href="css2/login.css" debug="false">
+    <link rel="stylesheet" type="text/css" href="css2/home.css">
+    <link rel="stylesheet" href="css/menu.css" type="text/css">
+<div class="container">
+	<div id="header-top" style="background-image:  url(Back-To-School.jpg); width: 100%;height: 250px; background-size: cover">
 		<div class="header-login">
 			<p class="p-login">
 
@@ -35,16 +45,24 @@
 			</p>
 		</div>
 	</div>
-	<div id="header-menu" style="background: rgb(0, 183, 178);">
-		<a class="lnk-hm-home menu_active"
-			href="./index.jsp"></a>
-		<ul class="ul-menu-header">
-			<li class="li-menu-header"><a href="ExamServlet" class="lnk-menu-header">THI TRẮC NGHIỆM</a></li>
-			<li class="li-menu-header"><a href= "SearchServlet" class="lnk-menu-header ">TRA CỨU</a></li>
-			<li class="li-menu-header"><a href="help.jsp" class="lnk-menu-header ">HƯỚNG DẪN</a></li>
-			<li class="li-menu-header"><a href="comment.jsp" class="lnk-menu-header ">ĐÓNG GÓP Ý KIẾN</a></li>
-			<li class="li-menu-header"><a href="HistoryServlet" class="lnk-menu-header ">LỊCH SỬ THI</a></li>	
-			<li class="li-menu-header"><a href="InformationServlet" class="lnk-menu-header ">TRANG CÁ NHÂN</a></li> 
+       <div id="header-menu" style="background: rgb(0, 183, 178);">
+            <a class="lnk-hm-home menu_active" href="./index.jsp"></a>
+            <ul class="ul-menu-header">
+                <li class="li-menu-header"><a href="ExamServlet" class="lnk-menu-header">THI TRẮC NGHIỆM</a>
+                </li>
+                <li class="li-menu-header"><a href="index.jsp" class="lnk-menu-header ">TRA CỨU</a>
+                </li>
+                <li class="li-menu-header"><a href="help.jsp" class="lnk-menu-header ">HƯỚNG DẪN</a>
+                </li>
+                <li class="li-menu-header"><a href="comment.jsp" class="lnk-menu-header ">ĐÓNG GÓP Ý KIẾN</a>
+                </li>
+                <li class="li-menu-header"><a href="HistoryServlet" class="lnk-menu-header ">LỊCH SỬ THI</a>
+                </li>
+                <li class="li-menu-header"><a href="InformationServlet" class="lnk-menu-header ">TRANG CÁ NHÂN</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 <%
  	if(listCookie != null) {
  		for (int i = 0; i < listCookie.length; i++) {

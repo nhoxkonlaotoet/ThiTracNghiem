@@ -1,0 +1,30 @@
+footer.full_footer .footer-copyright {
+    height: auto;
+    position: relative;
+}
+istock-c8991943…b333b6f5.css:1
+footer.full_footer .footer-copyright {
+    color: #a8b2b1;
+    font-size: 0.75rem;
+    margin: 0 auto;
+    max-width: 1150px;
+    overflow: hidden;
+    padding: 0px 25px;
+    text-align: center;
+    width: 100%;
+}
+#category-tiles {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 1146px;
+    zoom: 1;
+    zoom: 1;
+    width: 96%;
+}
+.border-mon{
+    background: transparent;
+    border: 1px solid #665544;
+}

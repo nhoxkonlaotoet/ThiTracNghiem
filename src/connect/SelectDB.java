@@ -334,6 +334,22 @@ public class SelectDB {
 		return rs;
 	} 
 	
+	public static ResultSet getQuestion2(String keyWord){
+		Connection con = null;  
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConnectDB.getConnection();
+			String SQL = "SELECT * FROM Question WHERE Content like N'%"+ keyWord +"%'";
+			stmt = con.createStatement();  
+			rs = stmt.executeQuery(SQL); 
+		}  
+		catch (Exception e) {  
+			e.printStackTrace();  
+		}  
+		return rs;
+	} 
+	
 	public static boolean ExistQuestion(String content){
 		Connection con = null;  
 		Statement stmt = null;

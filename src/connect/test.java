@@ -7,8 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,10 +37,7 @@ public class test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Date today=new Date(System.currentTimeMillis());
-		SimpleDateFormat timeFormat= new SimpleDateFormat("hh:mm dd/MM/yyyy");
-		String s = timeFormat.format(today.getTime());
-		response.getWriter().println("Bây giờ là:"+s);
+		
 	}
 
 	/**

@@ -108,6 +108,7 @@ public class ManageExam extends HttpServlet {
 				request.setAttribute("titleName", "");
 				request.setAttribute("schoolYear", "");
 				request.setAttribute("time", "");
+				response.sendRedirect("AddExam");
 				break;
 			case "Sửa":
 				request.setAttribute("listSubject", getListSubject());
@@ -166,8 +167,8 @@ public class ManageExam extends HttpServlet {
 			case "Xóa":
 				break;
 			}
-			RequestDispatcher rd = request.getRequestDispatcher("add-exam.jsp");
-			rd.forward(request, response);
+//			RequestDispatcher rd = request.getRequestDispatcher("add-exam.jsp");
+//			rd.forward(request, response);
 		}
 		if (commandA != null) {
 			switch(commandA) {

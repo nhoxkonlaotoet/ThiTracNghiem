@@ -119,8 +119,7 @@ Môn học:
 					+ "<td>"+ title.getSchoolYear() +"</td>"
 					+ "<td>"+ title.getTime() +"</td>"
 					+ "<input type='hidden' name='titleID' value='"+title.getTitleID()+"'>"
-					+ "<td align='center'><input type='submit' name='commandT' value='Xóa'>"
-					+ "<input type='submit' name='commandT' value='Sửa'></td></tr>");
+					+ "<td align='center'><input type='submit' name='commandT' value='Xóa'></td></tr>");
 			out.print("</form>");
 		}
 	}
@@ -130,9 +129,10 @@ Môn học:
 </table>
 <br>
 <form action="ManageExam" method="post">
-<input type="submit" name="commandT" value="Thêm đề thi">
+<input type="submit" name="commandT" value="Thêm đề thi"><br><br>
 </form>
-<br><br>
+<button onclick="location='./manager.jsp'">Quay lại</button>
+<br>
 </center>
 </body>
 </html>

@@ -11,23 +11,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- <script type="text/javascript">
-	function getTitle(){
-		var message = document.getElementById('show_message');
-		message.innerHTML = "á à ả";
-	
-	}
-</script>
-
-	<p style="color: red" id="show_message"></p>
---%>
+<%
+	Cookie[] listCookie = request.getCookies();
+	boolean login = false;
+	String userName = "";
+	if(listCookie != null)							
+		for(int k = 0; k < listCookie.length; k++){
+			if(listCookie[k].getName().equals("username")){	// đã đăng nhập
+				userName = listCookie[k].getValue();	// lưu lại username
+				login = true;
+				break;
+			}
+		}
+	if (!login)	// chưa đăng nhập
+		response.sendRedirect("./login.jsp");
+%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<%	
 		List<Subject> listSubject = (List<Subject>)request.getAttribute("listSubject"); // lấy danh sách đề thi		
 		List<String> listSchoolYear = (List<String>)request.getAttribute("listSchoolYear"); // lấy danh sách đề thi	
 		List<String> listTitle = (List<String>)request.getAttribute("listTitle"); // lấy danh sách đề thi		
 	%>
-	
+	<center>
 	<form action="ExamServlet" method="post">
 	<span>Môn học: </span>
 		<select name="subjectSelection" onchange="location=options[selectedIndex].value;">
@@ -80,5 +85,7 @@
 		<input type="hidden" value="completeselection" name="command">
 		<input type="submit" value="Bắt đầu làm bài" name="submit">
 	</form>
+	<br><button onclick="location='./index.jsp'">Quay lại</button>
+	</center>
 </body>
 </html>
