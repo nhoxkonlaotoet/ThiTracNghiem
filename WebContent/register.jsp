@@ -53,28 +53,28 @@
 					<h3>
 						<label> Tên tài khoản:&nbsp; </label>
 					</h3>
-					<input type="text" name="username" value="${ username }"> <br>
+					<input type="text" placeholder="Tài khoản" name="username" value="${ username }"> <br>
 					<h3>
 						<label> Mật khẩu:&nbsp; </label>
 					</h3>
-					<input type="password" name="password" value="${ password }">
+					<input type="password"  placeholder="Mật khẩu" name="password" value="${ password }">
 					<br>
 					<h3>
 						<label> Email:&nbsp; </label>
 					</h3>
-					<input type="text" name="email" value="${ email }"> <br>
+					<input type="text"  placeholder="Email" name="email" value="${ email }"> <br>
 					<h3>
 						<label> Họ & tên:&nbsp; </label>
 					</h3>
-					<input type="text" name="fullname" value="${ fullname }"> <br>
+					<input type="text"  placeholder="Họ tên" name="fullname" value="${ fullname }"> <br>
 					<h3>
 						<label> Sinh nhật:&nbsp; </label>
 					</h3>
-					<input type="text" name="birthday" value="${ birthday }"> <br>
-					<h3>
-						<label> Quê quán:&nbsp; </label>
+					<input type="text"  placeholder="Ngày sinh"birthday" value="${ birthday }"> <br>
+					<h3> 
+						<label>  Quê quán:&nbsp; </label>
 					</h3>
-					<input type="text" name="country" value="${ country }"> <br>
+					<input type="text"  placeholder="Nơi sinh" name="country" value="${ country }"> <br>
 					<label>&nbsp; </label> <input type="hidden" value="register"
 						name="command">
 					<center>

@@ -45,10 +45,11 @@
 		if (!login) // chưa đăng nhập
 			response.sendRedirect("./login.jsp");
 	%>
-	<div class="container">
+	<div class="container" >
 		<!--table-->
+		<div  style="margin: 20px 0px;">
 		<table id="myTable1" class="table table-striped table-bordered"
-			cellspacing="0" width="100%">
+			cellspacing="0" width="100% ">
 			<thead>
 				<tr> 
 					<th>Môn thi</th>
@@ -73,8 +74,8 @@
 			</c:forEach>
 
 		</table>
+		</div>
 		<br>
-		<button onclick="location='./index.jsp'">Quay lại</button>
 	</div>
 	
 	

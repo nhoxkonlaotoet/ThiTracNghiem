@@ -23,6 +23,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <div class="container">
         <div style="margin-top: 50px; margin-bottom: 50px;">
 <%
@@ -51,8 +52,7 @@
 			out.print("<script type=\"text/javascript\"> alert('Xóa môn học thành công!'); </script>");
 		} 
 %>
- 
-Môn học:
+ <h3>Môn học</h3>
 <%
 	ArrayList<Subject> listSubject = (ArrayList<Subject>)request.getAttribute("listSubject");
 	String commandS = (String)request.getAttribute("commandS");	

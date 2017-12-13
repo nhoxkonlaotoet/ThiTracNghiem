@@ -101,7 +101,7 @@
  </c:forEach>
 </table>
 <br>
-<button onclick="location='./index.jsp'">Quay lại</button>
+
 </center>
 </div></div>
 </body>

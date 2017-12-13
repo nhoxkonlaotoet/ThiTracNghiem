@@ -9,10 +9,9 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<link rel="stylesheet" type="text/css"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<div class="container">
-		<div style="margin-top: 50px; margin-bottom: 50px;">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
 			<%
 				String sent = request.getParameter("sent");
 				if ("1".equals(sent)) {
@@ -20,24 +19,26 @@
 				}
 			%>
 			<form action="CommentServlet" method="post">
-				<div class="row">
-					<div class="col-sm-3">
-						<h1>Tiêu đề :</h1>
-					</div>
-					<div class="col-sm-12">
-						<input type="text" name="title">
-					</div>
-					<div class="col-sm-3">
-						<h1>Nội dung:</h1>
-					</div>
-					<div class="col-sm-12"></div>
-					<br>
-					<textarea rows="3" cols="70" name="content"></textarea>
-				</div>
-				<div class="col-sm-12 text-center" style="margin-top: 20px;">
-					<input class="btn btn-default btn-lg" type="submit" value="Gửi">
-					<input class="btn btn-default btn-lg" type="reset" value="Làm mới" />
-			</form>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <h5>Tiêu đề:</h5>
+                    </div>
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" id="usr" name="title">
+                    </div>
+
+                    <div class="col-sm-1">
+                        <h5>Nội dung:</h5>
+                        </div>
+                        <div class="col-sm-12">
+                        <textarea class="form-control" rows="3" cols="70" name="content"></textarea>
+                    </div>
+                    <div class="col-sm-12 text-center" style="margin-top: 20px;">
+                        <input  class="btn btn-default btn-lg" type="submit" value="Gửi">
+                        <input class="btn btn-default btn-lg" type="reset" value="Làm mới" />
+                    </div>
+                </div>
+            </form>
 		</div>
 	</div>
 	<jsp:include page="./footer.jsp"></jsp:include>

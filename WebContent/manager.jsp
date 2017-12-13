@@ -30,7 +30,7 @@
             <div class="col-sm-3" style="text-align: center">
                 <a href="ManageAccount">
                             <div>
-                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                                <img alt="" src="https://blog.ononpay.com/wp-content/uploads/2016/12/huong-dan-mo-lai-tai-khoan-ngan-hang-bi-khoa-blog.ononpay.com_.jpg" style="width: 280px;height: 250px;background-size: cover">
                             </div>
                             <h5>Quản lí tài khoản</h5>
                         </a>
@@ -39,7 +39,7 @@
             <div class="col-sm-3" style="text-align: center">
                 <a href="ManageExam">
                             <div>
-                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                                <img alt="" src="http://duhocnhat.org.vn/wp-content/uploads/2013/03/Bai-thi-Top-J.jpg" style="width: 280px;height: 250px;background-size: cover">
                             </div>
                             <h5>Quản lí bài thi</h5>
                         </a>
@@ -47,7 +47,7 @@
                 <div class="col-sm-3" style="text-align: center">
                 <a href="ManageQuestion">
                             <div>
-                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                                <img alt="" src="http://cdythaiphong.edu.vn/wp-content/uploads/2016/12/ngan-hang-cau-hoi-660x330.jpg" style="width: 280px;height: 250px;background-size: cover">
                             </div>
                             <h5>Ngân hàng câu hỏi</h5>
                         </a>
@@ -55,14 +55,14 @@
                 <div class="col-sm-3" style="text-align: center">
                 <a href="ManageComment">
                             <div>
-                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                                <img alt="" src="https://jweb.vn/uploads/home/images/31688057119donggop.jpg" style="width: 280px;height: 250px;background-size: cover">
                             </div>
                             <h5>Danh sách góp ý</h5>
                         </a>
             </div>
         </div>
         </div>
-    <button onclick="location='./index.jsp'">Quay lại</button>
+  
     </div>
 
 
