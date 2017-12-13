@@ -80,5 +80,6 @@
 <tr><td>&nbsp;</td><td><input type="submit" name="commandT" value="Thay đổi"></td></tr>
 </table>
 </form>
+<jsp:include page="./footer.jsp"></jsp:include>
 </body>
 </html>

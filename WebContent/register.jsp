@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,45 +11,81 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
-<div class="body-form-login">
-<br><h1>Đăng ký</h1>
-		<% 
-		String acc = request.getParameter("Acc");
-		String ema = request.getParameter("Ema");
-		String pas = request.getParameter("Pas");
-		if (acc != null){
-			if ("0".equals(acc))
-				out.println("<div class=\"alert-box error\"><span>error: </span>Bạn chưa điền tên tài khoản!</div>");
-			if ("1".equals(acc)) 
-				out.println("<div class=\"alert-box error\"><span>error: </span>Tài khoản đã được sử dụng!</div>"); 
-			if ("2".equals(acc))
-				out.println("<div class=\"alert-box success\">Đăng ký thành công! Click vào <a href=\""+ request.getContextPath() +"/login.jsp\"><b>đây</b></a> để đăng nhập.</div>");
-		}
-		if (ema != null){
-			if ("0".equals(ema))
-				out.println("<div class=\"alert-box error\"><span>error: </span>Bạn chưa điền email!</div>");
-			if ("1".equals(ema)) 
-				out.println("<div class=\"alert-box error\"><span>error: </span>Email đã được sử dụng!</div>"); 
-		}
-		if (pas != null){
-			if ("1".equals(pas))
-				out.println("<div class=\"alert-box error\"><span>error: </span>Mật khẩu không hợp lệ!</div>"); 
-		}
-		%>
-	<form action="UserServlet" method="post" class="new_new_session ng-pristine ng-invalid ng-invalid-required">
-		<h3><label> Tên tài khoản:&nbsp; </label></h3> <input type="text" name="username" class="ng-invalid ng-touched">
-		<br><h3><label> Mật khẩu:&nbsp; </label></h3> <input type="password" name="password">
-		<br><h3><label> Email:&nbsp; </label></h3> <input type="text" name="email">		
-		<br><h3><label> Họ & tên:&nbsp; </label></h3> <input type="text" name="fullname">
-		<br><h3><label> Sinh nhật:&nbsp; </label></h3> <input type="text" name="birthday">
-		<br><h3><label> Quê quán:&nbsp; </label></h3> <input type="text" name="country">
-		 <br> <label>&nbsp; </label> 
-		
-		<input type="hidden" value="register" name="command">
-		<center><input type="submit" value="Đăng ký" name="submit"></center>
-	</form>
+	<div class="container">
+		<div class="content_wrapper">
+			<div id="header-wrapper"></div>
+			<section class="main_body">
+			<div class="site-width">
+				<article class="site_login"> <header
+					style="text-align: center">
+				<h1>Đăng kí</h1>
+
+				</header> <c:if test="${ Acc eq '0' }">
+					<div class="alert-box error">
+						<span>error: </span>Bạn chưa điền tên tài khoản!
+					</div>
+				</c:if> <c:if test="${ Acc eq '1' }">
+					<div class="alert-box error">
+						<span>error: </span>Tài khoản đã được sử dụng!
+					</div>
+				</c:if> <c:if test="${ Acc eq '2' }">
+					<div class="alert-box success">
+						Đăng ký thành công! Click vào <a href="./login.jsp"><b>đây</b></a>
+						để đăng nhập.
+					</div>
+				</c:if> <c:if test="${ Ema eq '0' }">
+					<div class="alert-box error">
+						<span>error: </span>Bạn chưa điền email!
+					</div>
+				</c:if> <c:if test="${ Ema eq '1' }">
+					<div class="alert-box error">
+						<span>error: </span>Email đã được sử dụng!
+					</div>
+				</c:if> <c:if test="${ Pas eq '1' }">
+					<div class="alert-box error">
+						<span>error: </span>Mật khẩu không hợp lệ!
+					</div>
+				</c:if>
+
+				<form action="UserServlet" method="post">
+					<h3>
+						<label> Tên tài khoản:&nbsp; </label>
+					</h3>
+					<input type="text" name="username" value="${ username }"> <br>
+					<h3>
+						<label> Mật khẩu:&nbsp; </label>
+					</h3>
+					<input type="password" name="password" value="${ password }">
+					<br>
+					<h3>
+						<label> Email:&nbsp; </label>
+					</h3>
+					<input type="text" name="email" value="${ email }"> <br>
+					<h3>
+						<label> Họ & tên:&nbsp; </label>
+					</h3>
+					<input type="text" name="fullname" value="${ fullname }"> <br>
+					<h3>
+						<label> Sinh nhật:&nbsp; </label>
+					</h3>
+					<input type="text" name="birthday" value="${ birthday }"> <br>
+					<h3>
+						<label> Quê quán:&nbsp; </label>
+					</h3>
+					<input type="text" name="country" value="${ country }"> <br>
+					<label>&nbsp; </label> <input type="hidden" value="register"
+						name="command">
+					<center>
+						<input type="submit" value="Đăng ký" name="submit">
+					</center>
+				</form>
+				</article>
+			</div>
+			</section>
+		</div>
 	</div>
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

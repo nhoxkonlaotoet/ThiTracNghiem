@@ -18,7 +18,7 @@
 	<% int i = 1; %>
 	<c:forEach items="${ listHistory }" var="history">
 		<b>Câu <%= i++ %>: ${ history.questionContent } </b><br>
-		Đáp án chọn: ${ history.chosenAnswer } và đáp án đúng: ${ history.correctAnswer } <br>
+		<%-- Đáp án chọn: ${ history.chosenAnswer } và đáp án đúng: ${ history.correctAnswer } <br> --%>
 		<%-- Hình: ${ history.image } <br> --%>
 		<c:if test="${ history.image.trim() eq 'Không' }"></c:if>
 		<c:if test="${ history.image.trim() ne 'Không' }"> <img src="./images/question/${ history.image }"> <br> </c:if>
@@ -99,6 +99,33 @@
 			<c:if test="${ history.chosenAnswer.trim() ne 'D' and history.correctAnswer.trim() ne 'D' }">
 				<font color="black">D. ${ history.answerD } </font><br>
 			</c:if>
+			<!-- Không chọn đáp án -->
+			<c:if test="${ history.chosenAnswer.trim() eq 'x' }">
+				<c:if test="${ history.chosenAnswer.trim() eq history.correctAnswer.trim() and history.chosenAnswer.trim() eq 'A'}">
+					<font color="blue"><b>A. ${ history.answerA } </b></font><br>
+					<font color="black">B. ${ history.answerB } </font><br>
+					<font color="black">C. ${ history.answerC } </font><br>
+					<font color="black">D. ${ history.answerD } </font><br>
+				</c:if>
+				<c:if test="${ history.chosenAnswer.trim() eq history.correctAnswer.trim() and history.chosenAnswer.trim() eq 'B'}">
+					<font color="black">A. ${ history.answerA } </font><br>
+					<font color="blue"><b>B. ${ history.answerB } </b></font><br>
+					<font color="black">C. ${ history.answerC } </font><br>
+					<font color="black">D. ${ history.answerD } </font><br>
+				</c:if>
+				<c:if test="${ history.chosenAnswer.trim() eq history.correctAnswer.trim() and history.chosenAnswer.trim() eq 'C'}">
+					<font color="black">A. ${ history.answerA } </font><br>
+					<font color="black">B. ${ history.answerB } </font><br>
+					<font color="blue"><b>C. ${ history.answerC } </b></font><br>
+					<font color="black">D. ${ history.answerD } </font><br>
+				</c:if>
+				<c:if test="${ history.chosenAnswer.trim() eq history.correctAnswer.trim() and history.chosenAnswer.trim() eq 'D'}">
+					<font color="black">A. ${ history.answerA } </font><br>
+					<font color="black">B. ${ history.answerB } </font><br>
+					<font color="black">C. ${ history.answerC } </font><br>
+					<font color="blue"><b>D. ${ history.answerD } </b></font><br>
+				</c:if>
+			</c:if>
 		</c:if>
 		<br>
 	</c:forEach>
@@ -106,4 +133,5 @@
 <button  value="Quay lại" onclick="location.href='./HistoryServlet'">Quay lại</button>
 </div>
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

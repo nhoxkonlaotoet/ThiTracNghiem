@@ -7,10 +7,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="header.jsp"></jsp:include>
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" media="all" href="css2/login.css" debug="false">
+    <!-- thanh menu-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/menu.css" type="text/css">
+    <!--table css-->
+    <link rel="stylesheet" type="text/css"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+       
+        
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        
+        
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+       
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('#myTable1').dataTable();
+        })
+        </script>
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+
+ <div class="container" > 
+        <div class="row" style="margin: 20px 0px;">
 <%
 	Cookie[] listCookie = request.getCookies();
 	boolean login = false;
@@ -36,18 +64,31 @@
 	}
 %>
 <center>
-<form action="SearchServlet" method="post">
-Tìm theo: 
-<select name="type">
-<option value="subject">Môn học</option>
-<option value="title">Tên đề</option>
-<option value="schoolyear">Năm học</option>
-</select>
-<input type="text" name="keyWord">
-<input type="submit" value="Tìm">
-</form>
+<div class="row" style="margin: 20px 0px;">
+            <form action="SearchServlet" method="post">
+                <div class="row">
+                    <div class="col-sm-1">
+                        Tìm theo:
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="type">
+                            <option value="subject">Môn học</option>
+                            <option value="title">Tên đề</option>
+                            <option value="schoolyear">Năm học</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" name="keyWord">
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="btn btn-default btn-lg" type="submit" value="Tìm">
+                    </div>
+                </div>
+            </form>
+        </div>
 
-<table border="1" width="60%">
+
+<table border="1" class="table table-striped table-bordered" cellspacing="0" width="100%"  >
 <tr><td>Môn thi</td><td>Năm học</td><td>Mã đề</td><td>Thời gian làm bài</td><td>Thao tác</td></tr>
 <c:forEach items="${listTitle}" var="title">
 <tr>
@@ -62,5 +103,7 @@ Tìm theo:
 <br>
 <button onclick="location='./index.jsp'">Quay lại</button>
 </center>
+</div></div>
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

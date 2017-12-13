@@ -8,33 +8,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	Cookie[] listCookie = request.getCookies();
-	boolean login = false;
-	String userName = "";
-	if(listCookie != null)							
-		for(int k = 0; k < listCookie.length; k++){
-			if(listCookie[k].getName().equals("username")){	// đã đăng nhập
-				userName = listCookie[k].getValue();	// lưu lại username
-				login = true;
-				break;
-			}
-		}
-	if (!login)	// chưa đăng nhập
-		response.sendRedirect("./login.jsp");
-%>
+<%-- <script type="text/javascript">
+	function getTitle(){
+		var message = document.getElementById('show_message');
+		message.innerHTML = "á à ả";
+	
+	}
+</script>
+
+	<p style="color: red" id="show_message"></p>
+--%>
 	<jsp:include page="header.jsp"></jsp:include>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<%	
 		List<Subject> listSubject = (List<Subject>)request.getAttribute("listSubject"); // lấy danh sách đề thi		
 		List<String> listSchoolYear = (List<String>)request.getAttribute("listSchoolYear"); // lấy danh sách đề thi	
 		List<String> listTitle = (List<String>)request.getAttribute("listTitle"); // lấy danh sách đề thi		
 	%>
-	<center>
+	<div class="container"> 
 	<form action="ExamServlet" method="post">
-	<span>Môn học: </span>
+	<span><h3>Môn học:</h3> </span>
 		<select name="subjectSelection" onchange="location=options[selectedIndex].value;">
 		<option disabled="disabled" selected="selected">Chọn môn thi</option>
 			<%
@@ -50,7 +47,7 @@
 				//	out.println("<option>Chọn môn thi</option>");
 			%>
 		</select> 
-		<span>Năm học: </span> 
+		<span><h3>Năm học:</h3> </span> 
 		<select name="schoolyearSelection" onchange="location=options[selectedIndex].value;">
 		<option disabled="disabled" selected="selected">Chọn năm học</option>
 		<%
@@ -66,7 +63,7 @@
 			//	out.println("<option>Chọn năm học</option>");
 		%>
 		</select>
-			<span>Đề thi: </span>
+			<span><h3>Đề thi:</h3> </span>
 			<select name="titleSelection"  onchange="location=options[selectedIndex].value;">
 			<option disabled="disabled" selected="selected">Chọn đề thi</option>
 				<%
@@ -82,10 +79,9 @@
 			//	out.println("<option>Chọn đề thi</option>");
 		%>
 		</select>
-		<input type="hidden" value="completeselection" name="command">
-		<input type="submit" value="Bắt đầu làm bài" name="submit">
+		<input type="hidden" value="completeselection" name="command"> 
+		<center><input class="btn btn-default btn-lg" type="submit" value="Bắt đầu làm bài" name="submit" style="margin-top:20px;margin-bottom:20px"></center>
 	</form>
-	<br><button onclick="location='./index.jsp'">Quay lại</button>
-	</center>
+	</div>
 </body>
 </html>

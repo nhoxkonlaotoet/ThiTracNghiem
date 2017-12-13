@@ -153,5 +153,6 @@
 	<tr><td><input type="submit" value="Thêm đề thi" name="command"></td></tr>
 </table>
 </form>
+<jsp:include page="./footer.jsp"></jsp:include>
 </body>
 </html>

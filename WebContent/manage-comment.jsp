@@ -11,6 +11,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+ <div class="container">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
 <%
 	Cookie[] listCookie = request.getCookies();
 	String role = "manager";
@@ -25,7 +27,7 @@
 %>
 <br>
 <center>
-<table border="1" bordercolor="green" width="80%">
+<table border="1" bordercolor="green" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <caption><h3>Danh sách ý kiến đóng góp</h3></caption>
 <tr><td align="center">Người gửi</td>
 <td align="center">Tiêu đề</td>
@@ -42,7 +44,7 @@
 			<c:if test="${ comment.status }">
 				<td align="center">Đã duyệt</td>
 			</c:if>
-		
+		 
 			<c:if test="${ !comment.status }">
 				<td align="center"><input type="hidden" name="commentID" value="${ comment.commentID }">
 				<input type="submit" value="Duyệt"></td>
@@ -50,7 +52,9 @@
 		</tr>
 	</form>
 </c:forEach>
-</table><br>
-<button onclick="location='./manager.jsp'">Quay lại</button></center>
+</table><br>   
+
+</div></div>
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

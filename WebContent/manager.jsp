@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,11 +22,50 @@
 			response.sendRedirect("index.jsp");		
 	}
 %>
-<a href="ManageAccount">Quản lý tài khoản</a><br>
-<a href="ManageExam">Quản lý bài thi</a><br>
-<a href="ManageQuestion">Ngân hàng câu hỏi</a><br>
-<a href="ManageComment">Danh sách ý kiến đóng góp</a>
-<br>
-<button onclick="location='./index.jsp'">Quay lại</button>
+
+
+  <div class="container">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
+            <div class="row ">    
+            <div class="col-sm-3" style="text-align: center">
+                <a href="ManageAccount">
+                            <div>
+                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                            </div>
+                            <h5>Quản lí tài khoản</h5>
+                        </a>
+            </div>
+            
+            <div class="col-sm-3" style="text-align: center">
+                <a href="ManageExam">
+                            <div>
+                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                            </div>
+                            <h5>Quản lí bài thi</h5>
+                        </a>
+            </div>
+                <div class="col-sm-3" style="text-align: center">
+                <a href="ManageQuestion">
+                            <div>
+                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                            </div>
+                            <h5>Ngân hàng câu hỏi</h5>
+                        </a>
+            </div> 
+                <div class="col-sm-3" style="text-align: center">
+                <a href="ManageComment">
+                            <div>
+                                <img alt="" src="images/446_315.jpg" style="width: 280px;height: 250px;background-size: cover">
+                            </div>
+                            <h5>Danh sách góp ý</h5>
+                        </a>
+            </div>
+        </div>
+        </div>
+    <button onclick="location='./index.jsp'">Quay lại</button>
+    </div>
+
+
 </body>
+   <jsp:include page="./footer.jsp"></jsp:include>  
 </html>

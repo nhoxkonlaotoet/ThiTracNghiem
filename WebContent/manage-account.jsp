@@ -10,6 +10,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+   <div class="container">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
 <%
 	Cookie[] listCookie = request.getCookies();
 	String role = "manager";
@@ -23,7 +25,7 @@
 	}
 %>
 <center>
-<table border="1" bordercolor="green" width="80%" height="80">
+<table border="1" bordercolor="green" width="80%" height="80" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <caption><h3>Danh sách tài khoản</h3></caption>
 <tr>
 <td align="center">Tên tài khoản</td>
@@ -131,9 +133,11 @@
 			out.print("</form>");
 		}
 	}
-%>
-</table>
-<button onclick="location='./manager.jsp'">Quay lại</button>
-</center>
-</body>
+%> 
+
+</div>
+</div>
+
+</body> 
+    
 </html>

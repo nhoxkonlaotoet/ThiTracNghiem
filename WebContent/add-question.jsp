@@ -62,5 +62,6 @@
 		<tr><td><input type="submit" name="commandA" value="Quay lại"></td></tr>
 	</table>
 </form>
+<jsp:include page="./footer.jsp"></jsp:include>
 </body>
 </html>

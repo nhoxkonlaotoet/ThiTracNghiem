@@ -56,11 +56,7 @@
 			</div>
 			</section>
 		</div>
-		<footer class="minimal_footer container" class="" id="footer">
-		<p class="copyright">
-			©2017 Web Developer. <span>This's a new design for Junior UTE.</span>
-		</p>
-		</footer>
 	</div>
 </body>
+   <jsp:include page="./footer.jsp"></jsp:include>
 </html>

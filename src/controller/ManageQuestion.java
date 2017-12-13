@@ -50,6 +50,7 @@ public class ManageQuestion extends HttpServlet {
 				for (Question q : getListQuestion(request.getParameter("keyWord"))) {
 					list.add(getQuestionDetail(q.getQuestionID(), q.getContent(), q.getImage()));
 				}
+				System.out.print(request.getParameter("keyWord").toString());
 				request.setAttribute("listQuestion", list);	
 				session.setAttribute("keyWord", request.getParameter("keyWord"));
 				request.getRequestDispatcher("manage-question.jsp").forward(request, response);

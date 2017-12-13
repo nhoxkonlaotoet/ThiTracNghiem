@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<br> </br>
+<div class="container">
+ <footer class="full_footer floating_footer" id="footer">
+            <div class="nav-links">
+                <div class="footer-copyright">
+                    <p class="copyright">©2017 Web Developer. <span>This's a new design for Junior UTE.</span>
+                    </p>
+                </div>
+            </div>
+        </footer>    
+        </div>
 </body>
 </html>

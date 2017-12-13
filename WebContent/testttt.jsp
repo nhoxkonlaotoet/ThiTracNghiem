@@ -36,4 +36,5 @@
             <input type="submit" name="login" value="Login"/>
         </form> -->
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

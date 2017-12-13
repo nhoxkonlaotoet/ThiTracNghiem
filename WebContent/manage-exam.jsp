@@ -3,6 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,6 +23,8 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+    <div class="container">
+        <div style="margin-top: 50px; margin-bottom: 50px;">
 <%
 	Cookie[] listCookie = request.getCookies();
 	String role = "manager";
@@ -35,6 +38,7 @@
 	}
 %>
 <br><center>
+
 <%
 	String err = (String)request.getAttribute("err");
 	if (err != null && !err.equals(""))	// có lỗi xảy ra
@@ -47,6 +51,7 @@
 			out.print("<script type=\"text/javascript\"> alert('Xóa môn học thành công!'); </script>");
 		} 
 %>
+ 
 Môn học:
 <%
 	ArrayList<Subject> listSubject = (ArrayList<Subject>)request.getAttribute("listSubject");
@@ -86,10 +91,10 @@ Môn học:
 		}
 	}
 	if (commandS == null || (!commandS.equals("Thêm") && !commandS.equals("Sửa"))){
-		out.print("<input type='submit' value='Thêm' name='commandS'><input type='submit' value='Sửa' name='commandS'></form>"
+		out.print("<input class=\"btn btn-default btn-lg\" type='submit' value='Thêm' name='commandS'><input  class=\"btn btn-default btn-lg\" type='submit' value='Sửa' name='commandS'></form>"
 				+ "<form action'ManageExam' method='post' onsubmit='return validateForm()'>"
-				+ "<input type='hidden' name='subjectDelete' value='"+ subjectSelected +"'>"
-				+ "<input type='submit' value='Xóa' name='commandS'></form>");
+				+ "<input  type='hidden' name='subjectDelete' value='"+ subjectSelected +"'>"
+				+ "<input class=\"btn btn-default btn-lg\" type='submit' value='Xóa' name='commandS'></form>");
 	}
 	if (commandS != null){	
 		if (commandS.equals("Thêm"))
@@ -103,7 +108,7 @@ Môn học:
 </center>
 <center>
 
-<table border="1" bordercolor="blue" width="60%">
+<table border="1" bordercolor="blue" width="60%" id="myTable1" class="table table-striped table-bordered">
 <caption><h3>Danh sách đề thi</h3></caption>
 <tr><td align="center">Tên môn</td>
 <td align="center">Mã đề</td>
@@ -120,7 +125,7 @@ Môn học:
 					+ "<td>"+ title.getTime() +"</td>"
 					+ "<input type='hidden' name='titleID' value='"+title.getTitleID()+"'>"
 					+ "<td align='center'><input type='submit' name='commandT' value='Xóa'></td></tr>");
-			out.print("</form>");
+			out.print("</form>");  
 		}
 	}
 	else
@@ -129,10 +134,11 @@ Môn học:
 </table>
 <br>
 <form action="ManageExam" method="post">
-<input type="submit" name="commandT" value="Thêm đề thi"><br><br>
+<input class="btn btn-default btn-lg"type="submit" name="commandT" value="Thêm đề thi"><br><br>
 </form>
-<button onclick="location='./manager.jsp'">Quay lại</button>
-<br>
-</center>
+</center>     
+
+</div></div>
 </body>
+<jsp:include page="./footer.jsp"></jsp:include>
 </html>

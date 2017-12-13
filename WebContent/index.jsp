@@ -80,7 +80,7 @@
             <div class="col-sm-12">
                 <h1>MÔN THI</h1>
             </div>
-            <div class="col-sm-3 border-mon">
+            <div class="col-sm-3 ">  
                 <a href="">
                             <div>
                                 <img alt="" src="images/446_315.jpg" style="width: 270px;height: 250px;background-size: cover;">
@@ -88,7 +88,7 @@
                             <h5>môn 1</h5>
                         </a>
             </div>
-            <div class="col-sm-3 border-mon">
+            <div class="col-sm-3 ">
                 <a href="">
                             <div>
                                 <img alt="" src="images/446_315.jpg" style="width: 270px;height: 250px;background-size: cover;">
@@ -96,7 +96,7 @@
                             <h5>môn 1</h5>
                         </a>
             </div>
-            <div class="col-sm-3 border-mon">
+            <div class="col-sm-3 ">
                 <a href="">
                             <div>
                                 <img alt="" src="images/446_315.jpg" style="width: 270px;height: 250px;background-size: cover;">
@@ -104,7 +104,7 @@
                             <h5>môn 1</h5>
                         </a>
             </div>
-            <div class="col-sm-3 border-mon">
+            <div class="col-sm-3 ">
                 <a href="">
                             <div>
                                 <img alt="" src="images/446_315.jpg" style="width: 270px;height: 250px;background-size: cover;">
@@ -114,37 +114,9 @@
             </div>
         </div>
         <!--Môn thi-->
-        <footer class="full_footer floating_footer" id="footer">
-            <div class="nav-links">
-                <div class="footer-copyright">
-                    <p class="copyright">©2017 Web Developer. <span>This's a new design for Junior UTE.</span>
-                    </p>
-                </div>
-            </div>
-        </footer>
-
-
     </div>
 </body>
-
+   <jsp:include page="footer.jsp"></jsp:include>
 </html>
 	
 	
-<%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-<div class="container">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
-	<link rel="stylesheet" href="/css/home.css" type="text/css">
-	<link rel="stylesheet" href="/css/common.css" type="text/css">
-	<link rel="stylesheet" href="/css/support_face.css" type="text/css">
-	<jsp:include page="header.jsp"></jsp:include>
-	<h1><center>This is Index!!!!!!!!!!!!!!</center></h1>
-	</div>
-</body>
-</head>
-</html> --%>

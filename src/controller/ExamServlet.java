@@ -9,6 +9,7 @@ import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,11 +54,28 @@ public class ExamServlet extends HttpServlet {
 				session.setAttribute("title", title);
 			}
 		}
+		request.setAttribute("subject", subject);
+		request.setAttribute("schoolyear", schoolyear);
+		request.setAttribute("title", title);
 		RequestDispatcher rd = request.getRequestDispatcher("choose.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Cookie[] listCookie = request.getCookies();
+		boolean login = false;
+		String userName = "";
+		if(listCookie != null)							
+			for(int k = 0; k < listCookie.length; k++){
+				if(listCookie[k].getName().equals("username")){	// đã đăng nhập
+					userName = listCookie[k].getValue();	// lưu lại username
+					login = true;
+					break;
+				}
+			}
+		if (!login) {
+			response.sendRedirect("./login.jsp");
+		}
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
@@ -78,6 +96,7 @@ public class ExamServlet extends HttpServlet {
 			switch (command) {
 			case "completeselection":	// chọn đề thi xong và ấn bắt đầu thi
 				request.setAttribute("exam", "start"); // bắt đầu làm bài thi
+				request.setAttribute("userName", userName);
 				RequestDispatcher rd = request.getRequestDispatcher("examination.jsp");
 				rd.forward(request, response);
 				break;
@@ -88,7 +107,10 @@ public class ExamServlet extends HttpServlet {
 				int numberOfQuestion = Integer.parseInt(request.getParameter("numberOfQuestion"));
 				for (int i = 0; i < numberOfQuestion; i++) {
 					String ans = request.getParameter("question" + (i + 1));	// lấy đáp án đã chọn của từng câu hỏi
-					listSelectedAnswer.add(ans);	// thêm đáp án vào danh sách
+					if (ans != null && !ans.equals(""))
+						listSelectedAnswer.add(ans);	// thêm đáp án vào danh sách
+					else	// không chọn đáp án nào
+						listSelectedAnswer.add("x");
 				}
 				for (int j = 0; j < numberOfQuestion; j++) {
 					String a = listSelectedAnswer.get(j);
